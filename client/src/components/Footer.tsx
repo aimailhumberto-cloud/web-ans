@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="font-display text-2xl font-extrabold text-white mb-3">ANS</h3>
+            <img src="/logo-ans.png" alt="ANS" className="h-10 w-auto mb-3 brightness-0 invert" />
             <p className="text-sm leading-relaxed text-white/60 mb-4">
               Academia Nacional de Surf. Más de 5 años enseñándote a estar sobre las olas en Playa Caracol, Panamá.
             </p>

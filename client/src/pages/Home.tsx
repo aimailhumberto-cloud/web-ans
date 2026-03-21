@@ -147,7 +147,7 @@ export default function Home() {
             <motion.div variants={fadeUp}>
               <Link href="/clases" className="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={IMAGES.surfKids} alt="Clases de Surf" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={IMAGES.surfKids} alt="Clases de Surf" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ocean/60 to-transparent" />
                   <div className="absolute bottom-3 left-4">
                     <span className="bg-coral text-white text-xs font-display font-semibold px-2 py-1 rounded">Desde $55</span>
@@ -167,7 +167,7 @@ export default function Home() {
             <motion.div variants={fadeUp}>
               <Link href="/masterclasses" className="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={IMAGES.surfGroup} alt="Masterclasses" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={IMAGES.surfGroup} alt="Masterclasses" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ocean/60 to-transparent" />
                   <div className="absolute bottom-3 left-4">
                     <span className="bg-coral text-white text-xs font-display font-semibold px-2 py-1 rounded">$175/sesión</span>
@@ -187,7 +187,7 @@ export default function Home() {
             <motion.div variants={fadeUp}>
               <Link href="/surf-camps" className="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={IMAGES.surfSchool} alt="Surf Camps" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={IMAGES.surfSchool} alt="Surf Camps" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ocean/60 to-transparent" />
                   <div className="absolute bottom-3 left-4">
                     <span className="bg-coral text-white text-xs font-display font-semibold px-2 py-1 rounded">$550/camp</span>
@@ -207,7 +207,7 @@ export default function Home() {
             <motion.div variants={fadeUp}>
               <Link href="/retreats" className="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={IMAGES.radissonPool} alt="Surf Retreats" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={IMAGES.radissonPool} alt="Surf Retreats" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ocean/60 to-transparent" />
                   <div className="absolute bottom-3 left-4">
                     <span className="bg-coral text-white text-xs font-display font-semibold px-2 py-1 rounded">$1,150/retreat</span>
@@ -317,7 +317,7 @@ export default function Home() {
       {/* ==================== RADISSON SECTION ==================== */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={IMAGES.radissonLounge} alt="Radisson Riviera Playa Caracol" className="w-full h-full object-cover" />
+          <img src={IMAGES.radissonLounge} alt="Radisson Riviera Playa Caracol" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-ocean/75" />
         </div>
         <div className="relative container">
@@ -352,9 +352,9 @@ export default function Home() {
               </ul>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <img src={IMAGES.radissonPool} alt="Piscina Radisson" className="rounded-lg w-full h-40 object-cover" />
-              <img src={IMAGES.ventoClub} alt="Vento Beach Club" className="rounded-lg w-full h-40 object-cover" />
-              <img src={IMAGES.ventoDaypass} alt="Vento Daypass" className="rounded-lg w-full h-40 object-cover col-span-2" />
+              <img src={IMAGES.radissonPool} alt="Piscina Radisson" className="rounded-lg w-full h-40 object-cover" loading="lazy" />
+              <img src={IMAGES.ventoClub} alt="Vento Beach Club" className="rounded-lg w-full h-40 object-cover" loading="lazy" />
+              <img src={IMAGES.ventoDaypass} alt="Vento Daypass" className="rounded-lg w-full h-40 object-cover col-span-2" loading="lazy" />
             </div>
           </div>
         </div>

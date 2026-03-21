@@ -40,12 +40,11 @@ export default function Navbar() {
       <div className="container flex items-center justify-between h-16 lg:h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-display text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
-            ANS
-          </span>
-          <span className="hidden sm:block text-white/70 text-xs font-body leading-tight">
-            Academia Nacional<br />de Surf
-          </span>
+          <img
+            src="/logo-ans.png"
+            alt="ANS - Academia Nacional de Surf"
+            className="h-10 lg:h-12 w-auto"
+          />
         </Link>
 
         {/* Desktop Nav */}

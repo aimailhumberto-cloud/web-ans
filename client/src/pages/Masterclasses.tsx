@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Clock, Users, Waves } from "lucide-react";
 import { IMAGES, MASTERCLASSES, WHATSAPP_URL } from "@/lib/data";
+import { getEventStatus, getStatusBadgeColor } from "@/lib/dateUtils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -19,7 +20,7 @@ export default function Masterclasses() {
       {/* Hero */}
       <section className="relative pt-20 pb-16 bg-ocean overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img src={IMAGES.surfGroup} alt="" className="w-full h-full object-cover" />
+          <img src={IMAGES.surfGroup} alt="" className="w-full h-full object-cover" loading="lazy" />
         </div>
         <div className="relative container pt-12">
           <p className="text-coral font-display font-semibold text-sm uppercase tracking-widest mb-2">Programa 2026</p>
@@ -40,14 +41,18 @@ export default function Masterclasses() {
       <section className="bg-foam py-20">
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {MASTERCLASSES.map((mc) => (
-              <motion.div key={mc.id} variants={fadeUp}>
+            {MASTERCLASSES.map((mc) => {
+              const status = getEventStatus(mc.date);
+              const badgeColor = getStatusBadgeColor(status);
+              return (
+              <motion.div key={mc.id} variants={fadeUp} className={status === "PASADO" ? "opacity-60" : ""}>
                 <Link href={`/masterclasses/${mc.slug}`} className="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
                   <div className="relative h-44 overflow-hidden">
-                    <img src={mc.image} alt={mc.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={mc.image} alt={mc.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-ocean/60 to-transparent" />
-                    <div className="absolute top-3 left-3">
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
                       <span className="bg-coral text-white text-xs font-display font-bold px-2 py-1 rounded">#{mc.number}</span>
+                      <span className={`text-xs font-display font-bold px-2 py-1 rounded ${badgeColor}`}>{status}</span>
                     </div>
                     <div className="absolute top-3 right-3">
                       <span className="bg-ocean/80 backdrop-blur-sm text-white text-xs font-display px-2 py-1 rounded">{mc.level}</span>
@@ -63,12 +68,13 @@ export default function Masterclasses() {
                     <h3 className="font-display font-bold text-ocean text-lg mb-1 group-hover:text-coral transition-colors">{mc.name}</h3>
                     <p className="text-muted-foreground text-sm font-body mb-3 line-clamp-2">{mc.topic}</p>
                     <span className="text-coral text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Ver detalles <ArrowRight className="w-3.5 h-3.5" />
+                      {status === "PASADO" ? "Ver resumen" : "Ver detalles"} <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </Link>
               </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
         </div>
       </section>
