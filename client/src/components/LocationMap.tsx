@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Link } from "wouter";
+import { MapPin } from "lucide-react";
 
 // Fix Leaflet default icon issue with bundlers
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -29,53 +29,48 @@ interface Location {
   lat: number;
   lng: number;
   description: string;
-  icon: string;
 }
 
+// Real coordinates for Playa Caracol / Punta Chame area
 const LOCATIONS: Location[] = [
   {
     id: "ans-surfside",
     name: "ANS SurfSide",
-    lat: 8.5617,
-    lng: -79.7023,
+    lat: 8.5632,
+    lng: -79.6883,
     description: "Base de operaciones. Clases de surf, masterclasses, surfcamps y tienda.",
-    icon: "🏄",
   },
   {
     id: "playa-caracol",
     name: "Playa Caracol",
-    lat: 8.5625,
-    lng: -79.6980,
+    lat: 8.5658,
+    lng: -79.6845,
     description: "Olas consistentes todo el año. Fondo de arena, ideal para aprender.",
-    icon: "🌊",
   },
   {
     id: "punta-chame",
     name: "Punta Chame",
-    lat: 8.5485,
-    lng: -79.7296,
+    lat: 8.5220,
+    lng: -79.7150,
     description: "Capital del kitesurf. Vientos de Nov a Mar, aguas planas.",
-    icon: "🪁",
   },
   {
     id: "radisson-riviera",
     name: "Radisson Riviera",
-    lat: 8.5605,
-    lng: -79.7005,
+    lat: 8.5645,
+    lng: -79.6865,
     description: "Hotel partner. Sede de los Surf Camps con alojamiento incluido.",
-    icon: "🏨",
   },
   {
     id: "vento-beach",
     name: "Vento Beach Club",
-    lat: 8.5612,
-    lng: -79.7010,
+    lat: 8.5640,
+    lng: -79.6870,
     description: "Restaurante frente al mar. Almuerzos de masterclasses y surf camps.",
-    icon: "🍹",
   },
 ];
 
-const MAP_CENTER: [number, number] = [8.558, -79.710];
+const MAP_CENTER: [number, number] = [8.548, -79.700];
 const MAP_ZOOM = 13;
 
 function FlyTo({ target }: { target: [number, number] | null }) {
@@ -124,20 +119,12 @@ export default function LocationMap() {
                 }`}
               >
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">{loc.icon}</span>
+                  <MapPin className={`w-4 h-4 mt-0.5 shrink-0 ${active === loc.id ? "text-coral" : "text-ocean"}`} />
                   <div>
-                    <h4
-                      className={`font-display font-bold text-sm ${
-                        active === loc.id ? "text-coral" : "text-ocean"
-                      }`}
-                    >
+                    <h4 className={`font-display font-bold text-sm ${active === loc.id ? "text-coral" : "text-ocean"}`}>
                       {loc.name}
                     </h4>
-                    <p
-                      className={`text-xs mt-1 ${
-                        active === loc.id ? "text-white/70" : "text-muted-foreground"
-                      }`}
-                    >
+                    <p className={`text-xs mt-1 ${active === loc.id ? "text-white/70" : "text-muted-foreground"}`}>
                       {loc.description}
                     </p>
                   </div>
@@ -168,7 +155,6 @@ export default function LocationMap() {
                 >
                   <Popup>
                     <div className="min-w-[180px]">
-                      <p className="text-lg mb-1">{loc.icon}</p>
                       <h3 className="font-bold text-sm">{loc.name}</h3>
                       <p className="text-xs text-gray-600 mt-1">{loc.description}</p>
                     </div>
