@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import { SURF_CAMPS, WHATSAPP_URL, WHATSAPP_NUMBER, LOCATION, IMAGES } from "@/lib/data";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import StickyCTA from "@/components/StickyCTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import NotFound from "./NotFound";
@@ -95,6 +97,11 @@ export default function SurfCampDetail() {
   return (
     <div className="min-h-screen bg-foam">
       <Navbar />
+      <Breadcrumbs crumbs={[
+        { label: "Surf Camps", href: "/surf-camps" },
+        { label: `#${camp.number} ${camp.name}` },
+      ]} />
+      <StickyCTA label={`Camp #${camp.number}: ${camp.name}`} price={camp.price} whatsappLink={whatsappLink} />
 
       {/* ═══════════════════════════════════════════════════════════
           HERO

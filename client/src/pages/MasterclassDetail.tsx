@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import { MASTERCLASSES, WHATSAPP_URL, WHATSAPP_NUMBER, LOCATION, IMAGES } from "@/lib/data";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import StickyCTA from "@/components/StickyCTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import NotFound from "./NotFound";
@@ -107,10 +109,13 @@ export default function MasterclassDetail() {
   return (
     <div className="min-h-screen bg-foam">
       <Navbar />
+      <Breadcrumbs crumbs={[
+        { label: "Masterclasses", href: "/masterclasses" },
+        { label: `#${mc.number} ${mc.name}` },
+      ]} />
+      <StickyCTA label={`Masterclass #${mc.number}: ${mc.name}`} price={mc.price} whatsappLink={whatsappLink} />
 
-      {/* ═══════════════════════════════════════════════════════════
-          HERO - Full screen immersive with product overlay
-      ═══════════════════════════════════════════════════════════ */}
+      {/* HERO - Full screen immersive with product overlay */}
       <section className="relative min-h-[70vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={mc.image} alt={mc.name} className="w-full h-full object-cover" />

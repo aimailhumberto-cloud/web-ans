@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import { SURF_RETREATS, WHATSAPP_URL, WHATSAPP_NUMBER, LOCATION, IMAGES } from "@/lib/data";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import StickyCTA from "@/components/StickyCTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import NotFound from "./NotFound";
@@ -61,6 +63,11 @@ export default function RetreatDetail() {
   return (
     <div className="min-h-screen bg-foam">
       <Navbar />
+      <Breadcrumbs crumbs={[
+        { label: "Retreats", href: "/retreats" },
+        { label: retreat.name },
+      ]} />
+      <StickyCTA label={retreat.name} price={retreat.price} whatsappLink={whatsappLink} />
 
       {/* ═══════════════════════════════════════════════════════════
           HERO - Premium full-screen immersive
