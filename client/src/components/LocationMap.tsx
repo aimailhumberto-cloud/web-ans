@@ -36,41 +36,41 @@ const LOCATIONS: Location[] = [
   {
     id: "ans-surfside",
     name: "ANS SurfSide",
-    lat: 8.6440,
-    lng: -79.7080,
+    lat: 8.5780,
+    lng: -79.7890,
     description: "Base de operaciones. Clases de surf, masterclasses, surfcamps y tienda.",
   },
   {
     id: "playa-caracol",
     name: "Playa Caracol",
-    lat: 8.6434,
-    lng: -79.7077,
+    lat: 8.5775,
+    lng: -79.7893,
     description: "Olas consistentes todo el año. Fondo de arena, ideal para aprender.",
   },
   {
     id: "punta-chame",
     name: "Punta Chame",
-    lat: 8.5750,
-    lng: -79.7350,
+    lat: 8.5755,
+    lng: -79.7351,
     description: "Capital del kitesurf. Vientos de Nov a Mar, aguas planas.",
   },
   {
     id: "radisson-riviera",
     name: "Radisson Riviera",
-    lat: 8.6430,
-    lng: -79.7070,
+    lat: 8.5743,
+    lng: -79.7930,
     description: "Hotel partner. Sede de los Surf Camps con alojamiento incluido.",
   },
   {
     id: "vento-beach",
     name: "Vento Beach Club",
-    lat: 8.6435,
-    lng: -79.7075,
+    lat: 8.5748,
+    lng: -79.7920,
     description: "Restaurante frente al mar. Almuerzos de masterclasses y surf camps.",
   },
 ];
 
-const MAP_CENTER: [number, number] = [8.620, -79.715];
+const MAP_CENTER: [number, number] = [8.576, -79.770];
 const MAP_ZOOM = 13;
 
 function FlyTo({ target }: { target: [number, number] | null }) {
