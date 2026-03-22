@@ -7,6 +7,7 @@ import { IMAGES, SURF_CAMPS, WHATSAPP_URL } from "@/lib/data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import EventCalendar from "@/components/EventCalendar";
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { visible: { transition: { staggerChildren: 0.08 } } };
@@ -43,6 +44,29 @@ export default function SurfCamps() {
           <div className="flex items-center gap-2"><Utensils className="w-5 h-5" /> Pensión Completa</div>
           <div className="flex items-center gap-2"><Users className="w-5 h-5" /> Surfer Invitado</div>
           <div className="flex items-center gap-2"><Moon className="w-5 h-5" /> Actividad Nocturna</div>
+        </div>
+      </section>
+
+      {/* Visual Calendar */}
+      <section className="bg-white py-16">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-8">
+            <p className="text-coral font-display font-semibold text-sm uppercase tracking-widest mb-2">Vista Calendario</p>
+            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-ocean">Calendario de Camps 2026</h2>
+          </div>
+          <EventCalendar
+            events={SURF_CAMPS.map((camp) => ({
+              id: camp.id,
+              title: camp.name,
+              date: camp.dates,
+              dateRange: camp.dates,
+              type: "surfcamp" as const,
+              slug: camp.slug,
+              level: camp.level,
+              price: camp.price,
+              color: "bg-ocean/15 text-ocean",
+            }))}
+          />
         </div>
       </section>
 

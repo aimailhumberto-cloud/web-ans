@@ -3,6 +3,7 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, Users, Award, Calendar, MapPin, Star, Clock, Waves } from "lucide-react";
+import LocationMap from "@/components/LocationMap";
 import {
   IMAGES,
   WHATSAPP_URL,
@@ -367,11 +368,14 @@ export default function Home() {
             <p className="text-coral font-display font-semibold text-sm uppercase tracking-widest mb-2">Testimonios</p>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-ocean">Lo Que Dicen Nuestros Surfistas</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { quote: "La mejor experiencia de surf que he tenido. Los instructores son increíbles y Playa Caracol es perfecta para aprender.", name: "María G.", from: "Ciudad de Panamá" },
-              { quote: "El Surf Camp superó todas mis expectativas. El alojamiento en Radisson, la comida y el surf fueron de primera.", name: "Carlos R.", from: "Bogotá, Colombia" },
-              { quote: "Vine sin saber nada de surf y salí parado en la tabla. Los instructores tienen mucha paciencia y profesionalismo.", name: "David M.", from: "San José, Costa Rica" },
+              { quote: "La mejor experiencia de surf que he tenido. Los instructores son increíbles y Playa Caracol es perfecta para aprender. Volví 3 veces.", name: "María G.", from: "Ciudad de Panamá" },
+              { quote: "El Surf Camp superó todas mis expectativas. El Radisson, la comida en Vento y el surfer invitado fueron de primera. Ya reservé el siguiente.", name: "Carlos R.", from: "Bogotá, Colombia" },
+              { quote: "Vine sin saber nada de surf y salí parado en la tabla en la primera clase. Los instructores tienen mucha paciencia y profesionalismo.", name: "David M.", from: "San José, Costa Rica" },
+              { quote: "La masterclass de bottom turn me cambió el surfing. El video análisis es brutal — ves exactamente qué estás haciendo mal. 100% recomendado.", name: "Alejandro P.", from: "Ciudad de Panamá" },
+              { quote: "My 12-year-old daughter took Surf 101 and was hooked. She’s now doing Foundation. The instructors make every kid feel like a champion.", name: "Sarah W.", from: "Miami, FL" },
+              { quote: "El kitesurf en Punta Chame es otro nivel. Vientos perfectos, aguas planas y un instructor que no te suelta hasta que vuelas. Certificé IKO en 3 días.", name: "Roberto L.", from: "Medellín, Colombia" },
             ].map((t, i) => (
               <div key={i} className="bg-white rounded-lg p-6 shadow-sm">
                 <div className="flex gap-1 mb-3">
@@ -389,6 +393,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ==================== MAP ==================== */}
+      <LocationMap />
 
       {/* ==================== CTA ==================== */}
       <section className="bg-ocean py-20">

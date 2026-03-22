@@ -8,6 +8,7 @@ import { getEventStatus, getStatusBadgeColor } from "@/lib/dateUtils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import EventCalendar from "@/components/EventCalendar";
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { visible: { transition: { staggerChildren: 0.08 } } };
@@ -34,6 +35,28 @@ export default function Masterclasses() {
             <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded"><Users className="w-4 h-4" /> Máx. 10 personas</span>
             <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded"><Waves className="w-4 h-4" /> $175 por sesión</span>
           </div>
+        </div>
+      </section>
+
+      {/* Visual Calendar */}
+      <section className="bg-white py-16">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-8">
+            <p className="text-coral font-display font-semibold text-sm uppercase tracking-widest mb-2">Vista Calendario</p>
+            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-ocean">Programa Completo 2026</h2>
+          </div>
+          <EventCalendar
+            events={MASTERCLASSES.map((mc) => ({
+              id: mc.id,
+              title: `#${mc.number} ${mc.name}`,
+              date: mc.date,
+              type: "masterclass" as const,
+              slug: mc.slug,
+              level: mc.level,
+              price: mc.price,
+              color: "bg-coral/15 text-coral",
+            }))}
+          />
         </div>
       </section>
 
