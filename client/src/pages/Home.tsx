@@ -38,8 +38,8 @@ export default function Home() {
       <section className="relative h-screen min-h-[600px] max-h-[900px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/hero-playa-caracol.jpg"
-            alt="Clase de surf ANS en Playa Caracol, Punta Chame"
+            src="/hero-ans-tent.jpg"
+            alt="ANS Academia Nacional de Surf en Playa Caracol, Punta Chame"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ocean/70 via-ocean/50 to-ocean/80" />
