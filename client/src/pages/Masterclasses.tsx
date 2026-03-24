@@ -20,8 +20,8 @@ export default function Masterclasses() {
 
       {/* Hero */}
       <section className="relative pt-20 pb-16 bg-ocean overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img src={IMAGES.surfGroup} alt="" className="w-full h-full object-cover" loading="lazy" />
+        <div className="absolute inset-0 opacity-30">
+          <img src="/hero-masterclasses-group.jpg" alt="Grupo ANS Surf con tablas en Playa Caracol" className="w-full h-full object-cover" style={{ objectPosition: 'center 40%' }} loading="lazy" />
         </div>
         <div className="relative container pt-12">
           <p className="text-coral font-display font-semibold text-sm uppercase tracking-widest mb-2">Programa 2026</p>
