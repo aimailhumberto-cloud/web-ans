@@ -172,7 +172,7 @@ export const MASTERCLASSES: MasterclassProduct[] = [
       { time: "13:00 - 14:30", activity: "Video análisis grupal" },
       { time: "14:30 - 15:00", activity: "Práctica adicional + cierre y certificados" },
     ],
-    image: IMAGES.surfGroup,
+    image: "/mc-1-duck-dive.jpg",
     slug: "duck-dive-paddling",
   },
   {
@@ -195,7 +195,7 @@ export const MASTERCLASSES: MasterclassProduct[] = [
       { time: "13:00 - 14:30", activity: "Video análisis grupal" },
       { time: "14:30 - 15:00", activity: "Práctica adicional + cierre y certificados" },
     ],
-    image: IMAGES.chameWaves,
+    image: "/mc-2-leer-olas.jpg",
     slug: "leer-olas",
   },
   {
@@ -218,7 +218,7 @@ export const MASTERCLASSES: MasterclassProduct[] = [
       { time: "13:00 - 14:30", activity: "Video análisis grupal" },
       { time: "14:30 - 15:00", activity: "Práctica adicional + cierre y certificados" },
     ],
-    image: IMAGES.surfAction,
+    image: "/mc-3-bottom-turn.jpg",
     slug: "bottom-turn",
   },
   {
