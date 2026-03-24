@@ -148,6 +148,7 @@ export interface MasterclassProduct {
   description: string;
   daySchedule: { time: string; activity: string }[];
   image: string;
+  imagePosition?: string;
   slug: string;
 }
 
@@ -173,6 +174,7 @@ export const MASTERCLASSES: MasterclassProduct[] = [
       { time: "14:30 - 15:00", activity: "Práctica adicional + cierre y certificados" },
     ],
     image: "/mc-1-duck-dive.jpg",
+    imagePosition: "center 30%",
     slug: "duck-dive-paddling",
   },
   {
@@ -219,6 +221,7 @@ export const MASTERCLASSES: MasterclassProduct[] = [
       { time: "14:30 - 15:00", activity: "Práctica adicional + cierre y certificados" },
     ],
     image: "/mc-3-bottom-turn.jpg",
+    imagePosition: "center 70%",
     slug: "bottom-turn",
   },
   {

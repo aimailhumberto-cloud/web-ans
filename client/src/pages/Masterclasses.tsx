@@ -49,7 +49,7 @@ export default function Masterclasses() {
               <motion.div key={mc.id} variants={fadeUp} className={status === "PASADO" ? "opacity-60" : ""}>
                 <Link href={`/masterclasses/${mc.slug}`} className="group block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
                   <div className="relative h-44 overflow-hidden">
-                    <img src={mc.image} alt={mc.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <img src={mc.image} alt={mc.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={mc.imagePosition ? { objectPosition: mc.imagePosition } : undefined} loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-ocean/60 to-transparent" />
                     <div className="absolute top-3 left-3 flex items-center gap-1.5">
                       <span className="bg-coral text-white text-xs font-display font-bold px-2 py-1 rounded">#{mc.number}</span>
