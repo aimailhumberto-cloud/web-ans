@@ -149,6 +149,7 @@ export interface MasterclassProduct {
   daySchedule: { time: string; activity: string }[];
   image: string;
   imagePosition?: string;
+  detailImages?: string[];
   slug: string;
 }
 
@@ -175,6 +176,7 @@ export const MASTERCLASSES: MasterclassProduct[] = [
     ],
     image: "/mc-1-duck-dive.jpg",
     imagePosition: "center 30%",
+    detailImages: ["/mc1-chapter1-underwater.jpg", "/mc1-break1-surfer.jpg", "/mc1-break2-group.jpg", "/mc1-break3-sunset.jpg"],
     slug: "duck-dive-paddling",
   },
   {

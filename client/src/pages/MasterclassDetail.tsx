@@ -91,8 +91,11 @@ export default function MasterclassDetail() {
   const quote = QUOTES[mcIndex % QUOTES.length];
   const whoFor = WHO_IS_THIS_FOR[mc.level] || WHO_IS_THIS_FOR["Todos los niveles"];
 
-  // Distribute gallery images across sections
-  const g = (offset: number) => GALLERY[(mcIndex * 3 + offset) % GALLERY.length];
+  // Distribute gallery images across sections, prefer detail-specific images
+  const g = (offset: number) => {
+    if (mc.detailImages && mc.detailImages[offset]) return mc.detailImages[offset];
+    return GALLERY[(mcIndex * 3 + offset) % GALLERY.length];
+  };
 
   const whatsappLink = `${WHATSAPP_URL}?text=Hola! Me interesa la Masterclass %23${mc.number}: ${encodeURIComponent(mc.name)} del ${encodeURIComponent(mc.date)}`;
   const whatsappCall = `${WHATSAPP_URL}?text=Hola! Quisiera hablar con alguien sobre la Masterclass %23${mc.number}`;
@@ -118,7 +121,7 @@ export default function MasterclassDetail() {
       {/* HERO - Full screen immersive with product overlay */}
       <section className="relative min-h-[70vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <img src={mc.image} alt={mc.name} className="w-full h-full object-cover" />
+          <img src={mc.image} alt={mc.name} className="w-full h-full object-cover" style={mc.imagePosition ? { objectPosition: mc.imagePosition } : undefined} />
           <div className="absolute inset-0 bg-gradient-to-t from-ocean via-ocean/60 to-ocean/20" />
         </div>
         <div className="relative container pb-12 pt-32">
@@ -247,15 +250,6 @@ export default function MasterclassDetail() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          FULL-WIDTH PHOTO BREAK — Just vibes
-      ═══════════════════════════════════════════════════════════ */}
-      <section className="grid grid-cols-3 h-[250px] sm:h-[300px]">
-        <img src={g(1)} alt="Surf lifestyle" className="w-full h-full object-cover" />
-        <img src={g(2)} alt="Playa Caracol" className="w-full h-full object-cover" />
-        <img src={g(3)} alt="Comunidad ANS" className="w-full h-full object-cover" />
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
           CHAPTER 2: WHO IS THIS FOR — Centered emotional text
       ═══════════════════════════════════════════════════════════ */}
       <section className="bg-white py-20">
@@ -286,9 +280,18 @@ export default function MasterclassDetail() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
+          FULL-WIDTH PHOTO BREAK — Just vibes
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="grid grid-cols-3 h-[250px] sm:h-[300px]">
+        <img src={g(1)} alt="Surf lifestyle" className="w-full h-full object-cover" />
+        <img src={g(2)} alt="Playa Caracol" className="w-full h-full object-cover" />
+        <img src={g(3)} alt="Comunidad ANS" className="w-full h-full object-cover" />
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
           QUICK STATS — Icon-based at a glance
       ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-foam py-12 border-y border-sand/30">
+      <section className="bg-foam py-12 border-y border-sand/30 relative z-10">
         <div className="container">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
@@ -317,7 +320,7 @@ export default function MasterclassDetail() {
       {/* ═══════════════════════════════════════════════════════════
           MID-PAGE CTA BANNER
       ═══════════════════════════════════════════════════════════ */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative py-16 overflow-hidden z-10">
         <div className="absolute inset-0">
           <img src={IMAGES.chameWaves} alt="Olas de Chame" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-ocean/85" />
@@ -343,7 +346,7 @@ export default function MasterclassDetail() {
       {/* ═══════════════════════════════════════════════════════════
           CHAPTER 3: THE DAY — Schedule with storytelling
       ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-foam py-20">
+      <section className="bg-foam py-20 relative z-10">
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
@@ -392,7 +395,7 @@ export default function MasterclassDetail() {
       {/* ═══════════════════════════════════════════════════════════
           PHOTO GRID — Full-width lifestyle collage
       ═══════════════════════════════════════════════════════════ */}
-      <section className="grid grid-cols-2 md:grid-cols-4 h-[200px] sm:h-[280px]">
+      <section className="grid grid-cols-2 md:grid-cols-4 h-[200px] sm:h-[280px] relative z-0">
         <img src={g(6)} alt="Lifestyle" className="w-full h-full object-cover" />
         <img src={g(7)} alt="Lifestyle" className="w-full h-full object-cover" />
         <img src={g(8)} alt="Lifestyle" className="w-full h-full object-cover hidden md:block" />
@@ -402,7 +405,7 @@ export default function MasterclassDetail() {
       {/* ═══════════════════════════════════════════════════════════
           CHAPTER 4: THE LOCATION — About Playa Caracol
       ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 relative z-10">
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
@@ -445,7 +448,7 @@ export default function MasterclassDetail() {
       {/* ═══════════════════════════════════════════════════════════
           INCLUDED / NOT INCLUDED — Side by side
       ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-foam py-20">
+      <section className="bg-foam py-20 relative z-10">
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.h2 variants={fadeUp} className="font-display text-3xl font-bold text-ocean text-center mb-12">
